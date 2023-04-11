@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install Open Game Panel
-# github.com/sanjaysrocks
-# https://github.com/SanjaySRocks/OGP-Installer/blob/master/ogp-panel-install.sh
+# github.com/BrilloCloud
+# https://github.com/BrilloCloud/OGP-Installer/blob/main/install-panel.sh
 
 cyan() {
 	echo -e "\\033[36;1m${@}\033[0m"
