@@ -18,13 +18,22 @@ Script supports auto install agent or panel for any os supported
 |        | 7       | ✅ |
 | 	 | 6       | ✅ |
 
+### First
+
+    apt-get update
+    apt-get upgrade
+
+### Second
+
+    apt install sudo bash curl
+
 ### Panel Installation
 
-    curl -O https://raw.githubusercontent.com/SanjaySRocks/OGP-Installer/master/install-panel.sh
+    curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-panel.sh
 
 ### Agent Installation 
 	
-    curl -O https://raw.githubusercontent.com/SanjaySRocks/OGP-Installer/master/install-agent.sh
+    curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-agent.sh
 
 ### If You Want To Buy VPS Contact Us BrilloCloud Discord
 https://discord.gg/psttH7RAE4
