@@ -7,10 +7,10 @@ Script supports auto install agent or panel for any os supported
 
 | OS     | Version |   |
 |--------|---------|---|
-| Ubuntu | 20.04   | ✅ |
-|        | 18.04   | ✅ |
-|  	 | 16.04   | ✅ |
+| Ubuntu | 22.04   | ✅ |
 |        | 20.04   | ✅ |
+|  	 | 18.04   | ✅ |
+|        | 16.04   | ✅ |
 | Debian | 10      | ✅ |
 |        | 9       | ✅ |
 | 	 | 8       | ✅ |
