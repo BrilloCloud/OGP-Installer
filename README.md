@@ -33,19 +33,19 @@ Script supports auto install agent or panel for any os supported
     
 ###
 
-   use mysql;
+    use mysql;
    
 ###
 
-   update user set plugin='' where User='root';
+    update user set plugin='' where User='root';
    
 ###
 
-   FLUSH PRIVILEGES;
+    FLUSH PRIVILEGES;
    
 ###
 
-   exit
+    exit
    
 ###
 
