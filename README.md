@@ -18,27 +18,27 @@ Script supports auto install agent or panel for any os supported
 |        | 7       | ✅ |
 | 	 | 6       | ✅ |
 
-### First
-
-    apt-get update
-###
-    apt-get upgrade
-
-### Second
-
-    apt install sudo bash curl
 
 ### Panel Installation
 
-    curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-panel.sh
-###
-    bash install-panel.sh
+    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-panel.sh && chmod 777 install-panel.sh && ./install-panel.sh
 
 ### Agent Installation 
 	
-    curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-agent.sh
+    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-agent.sh && chmod 777 install-agent.sh && ./install-agent.sh
+    
+### How To Fix ( MySql Offline ) [ mysqli_real_connect(): (HY000/1698): Access denied for user 'root'@'localhost' ]
+
+    mysql -u root -p
 ###
-    bash install-agent.sh
+   use mysql;
+###
+   update user set plugin='' where User='root';
+###
+   FLUSH PRIVILEGES;
+###
+   exit
+###
 
 ### If You Want To Buy VPS Contact Us BrilloCloud Discord
 https://discord.gg/psttH7RAE4
