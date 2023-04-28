@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installing OGP Agent on supported debian/ubuntu/centos server
 # github.com/BrilloCloud
-# https://github.com/BrilloCloud/OGP-Installer/blob/main/install-agent.sh
+# https://github.com/BrilloCloud/OGP-Installer/blob/master/agent.sh
 
 . /etc/os-release
 
