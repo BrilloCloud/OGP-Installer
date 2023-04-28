@@ -30,14 +30,23 @@ Script supports auto install agent or panel for any os supported
 ### How To Fix ( MySql Offline ) [ mysqli_real_connect(): (HY000/1698): Access denied for user 'root'@'localhost' ]
 
     mysql -u root -p
+    
 ###
+
    use mysql;
+   
 ###
+
    update user set plugin='' where User='root';
+   
 ###
+
    FLUSH PRIVILEGES;
+   
 ###
+
    exit
+   
 ###
 
 ### If You Want To Buy VPS Contact Us BrilloCloud Discord
