@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install Open Game Panel
 # github.com/BrilloCloud
-# https://github.com/BrilloCloud/OGP-Installer/blob/main/install-panel.sh
+# https://github.com/BrilloCloud/OGP-Installer/blob/main/panel.sh
 
 cyan() {
 	echo -e "\\033[36;1m${@}\033[0m"
@@ -14,6 +14,7 @@ echo "Your OS is $PRETTY_NAME"
 
 # defs
 update_system(){
+    echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
     sudo apt -y update
     sudo apt -y upgrade
 }
@@ -27,8 +28,14 @@ install_debian_ubuntu(){
 }
 
 if [ "$ID" == "debian" ]; then
-
+    echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 	apt install bc -y
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+    sudo apt -y install libreadline5
+    sudo apt -y install libncursesw5
+    sudo apt -y install lib32ncursesw5
 
 	if [ $(echo "$VERSION_ID == 10 || $VERSION_ID == 9 || $VERSION_ID == 8" | bc -l) != 1 ]; then
 		echo "Your Debian $VERSION_ID version not supported yet"
@@ -52,8 +59,10 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
-		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mysql-server php7.0-mbstring php-gettext git php-bcmath
-
+        sudo apt -y install apache2 mariadb-server
+        sudo mysql_secure_installation
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
+		
 	fi
 
 	if [ $(echo "$VERSION_ID == 8"|bc -l) == 1 ]; then
@@ -62,7 +71,9 @@ if [ "$ID" == "debian" ]; then
 		sleep 5
 
 		update_system
-		sudo apt-get -y install apache2 curl subversion php5 php5-gd php5-xmlrpc php5-curl php5-mysql php-pear phpmyadmin mysql-server libapache2-mod-php5 git
+        sudo apt -y install apache2 mariadb-server
+        sudo mysql_secure_installation
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
@@ -77,9 +88,7 @@ if [ "$ID" == "debian" ]; then
 		sudo service apache2 restart
 
 	fi
-
-	sudo mysql_secure_installation
-
+	
 	install_debian_ubuntu
 
 fi
@@ -87,7 +96,14 @@ fi
 
 if [ "$ID" == "ubuntu" ]; then
 
+    echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 	apt install bc -y
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt -y install libc6:i386 libncurses5:i386 libstdc++6:i386
+    sudo apt -y install libreadline5
+    sudo apt -y install libncursesw5
+    sudo apt -y install lib32ncursesw5
 	
 	if [ $(echo "$VERSION_ID == 20.04 || $VERSION_ID == 18.04 || $VERSION_ID == 16.04" | bc -l) != 1 ]; then
 		echo "Your Ubuntu $VERSION_ID version not supported yet"
@@ -100,7 +116,9 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		sudo apt-get -y install apache2 curl subversion php7.4 php7.4-gd php7.4-zip libapache2-mod-php7.4 php7.4-curl php7.4-mysql php7.4-xmlrpc php-pear phpmyadmin mariadb-server-10.3 php7.4-mbstring git php-bcmath
+        sudo apt -y install apache2 mariadb-server
+        sudo mysql_secure_installation
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
@@ -110,7 +128,9 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		sudo apt-get -y install apache2 curl subversion php7.2 php7.2-gd php7.2-zip libapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear phpmyadmin mysql-server php7.2-mbstring php-gettext git php-bcmath
+        sudo apt -y install apache2 mariadb-server
+        sudo mysql_secure_installation
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
@@ -120,7 +140,9 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		sudo apt-get -y install apache2 curl subversion php7.0 php7.0-gd php7.0-zip libapache2-mod-php7.0 php7.0-curl php7.0-mysql php7.0-xmlrpc php-pear phpmyadmin mysql-server php7.0-mbstring php-gettext git php-bcmath
+        sudo apt -y install apache2 mariadb-server
+        sudo mysql_secure_installation
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
@@ -130,13 +152,13 @@ if [ "$ID" == "ubuntu" ]; then
 		sleep 5
 
 		update_system
-		sudo apt-get -y install apache2 curl subversion php5 php5-gd php5-xmlrpc php5-curl php5-mysql php-pear phpmyadmin mysql-server libapache2-mod-php5 git
+        sudo apt -y install apache2 mariadb-server
+        sudo mysql_secure_installation
+        sudo apt -y install curl subversion php7.2 php7.2-gd php7.2-zip ibapache2-mod-php7.2 php7.2-curl php7.2-mysql php7.2-xmlrpc php-pear php7.2-mbstring php-gettext git php-bcmath phpmyadmin
 
 	fi
 
 	sed -i "s/^bind-address.*/bind-address=0.0.0.0/g" "/etc/mysql/mariadb.conf.d/50-server.cnf"
-
-	sudo mysql_secure_installation
 
 	install_debian_ubuntu
 	
