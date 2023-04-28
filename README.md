@@ -21,11 +21,11 @@ Script supports auto install agent or panel for any os supported
 
 ### Panel Installation
 
-    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-panel.sh && chmod 777 install-panel.sh && ./install-panel.sh
+    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/fregzy/OGP/master/panel.sh && chmod 777 panel.sh && ./panel.sh
 
 ### Agent Installation 
 	
-    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/BrilloCloud/OGP-Installer/main/install-agent.sh && chmod 777 install-agent.sh && ./install-agent.sh
+    sudo apt update && apt -y upgrade && apt -y install curl && curl -O https://raw.githubusercontent.com/fregzy/OGP/master/agent.sh && chmod 777 agent.sh && ./agent.sh
     
 ### How To Fix ( MySql Offline ) [ mysqli_real_connect(): (HY000/1698): Access denied for user 'root'@'localhost' ]
 
